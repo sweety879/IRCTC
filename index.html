@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            IRCTC
+        </title>
+        <style type='text/css'>
+            .left { width: 20%; float:left; text-align:left; display:inline; }
+            .right { width: 40%; float:left; text-align:left; display:inline; }
+            .inliner-container { width: 60%; margin:auto;}
+
+            #select {
+                display: block;
+                clear: both;
+            }
+        </style>
+    </head>
+    <body >
+        <div class="header">
+            <center>
+                <h2>Railway Ticktet Booking System</h2>
+            </center>
+        </div>
+        <div class="container">
+            <div style="content: center;">
+                <form method="get" action="http://127.0.0.1:8000/send_data" id="rail_form">
+                <p>
+                    <label for="to">To</label><br>
+                        <div id="to_options"></div>
+                </p>
+                <p>
+                    <label for="from">From</label><br>
+                        <div id="from_options"></div>
+                </p>
+                <div class="date-container" style="display:inline">
+                    <div class="left">
+                        <label for="doj">Date of Journey</label><br>
+                        <input type="date" id="doj" name="doj">
+                    </div>
+                    <div class="right">
+                        <label for="return">
+                        <input type="checkbox" id="return" name="return"> Return Date
+                        </label><br>                    
+                        <input type="date" id="return-date" name="return-date" onchange="calculatePrices()"> 
+                    </div>
+                </div>
+                <br><br>
+                <div class="coach">
+                    <p>Class:</p>
+                    <input type="radio" id="ac" name="coach" value="ac" onchange="calculatePrices()">
+                    <label for="ac">A/C</label>
+                    <input type="radio" id="cc" name="coach" value="cc" onchange="calculatePrices()">
+                    <label for="cc">CC</label>
+                    <input type="radio" id="sleeper" name="coach" value="sleeper" onchange="calculatePrices()">
+                    <label for="sleeper">Sleeper</label>
+                </div>
+                <div class="display-area" style="border-style: solid; width: 28%">
+                    <!-- <div id="actual-price">
+                    </div>
+                    <div id="gst">
+                    </div>
+                    <div id="total-price">
+                    </div> -->
+                    <input type="hidden" id="actual_price" name="actual_price">
+                    <input type="hidden" id="GST" name="GST">
+                    <input type="hidden" id="total_price" name="total_price">
+                </div>
+                <br>
+                <div class="button" style="width: 28%; text-align: right;">
+                   <input type="submit" value="submit" />
+                </div> 
+            </form>               
+            </div>
+        </div>
+    </body>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="static/search.static.js" type="text/javascript"></script>
+</html>
+    
