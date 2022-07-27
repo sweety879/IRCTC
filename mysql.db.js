@@ -1,6 +1,6 @@
 var mysql = require('mysql');
 var con = mysql.createConnection({
-    host:"localhost",
+    host:"127.0.0.1",
     user:"root",
     password:"mysql",
     database:"IRCTC"
@@ -14,17 +14,17 @@ con.connect(function(err){
     //         console.log("Database Created!!!")
     //         })   
 
-    var sqlQuery="create table stations(id varchar(40), name varchar(40))";
-    con.query(sqlQuery, function(err,result){
-        if(err) throw err;
-        console.log("Table Created..!!!")
-    })
+    // var sqlQuery="create table stations(id varchar(40), name varchar(40))";
+    // con.query(sqlQuery, function(err,result){
+    //     if(err) throw err;
+    //     console.log("Table Created..!!!")
+    // })
         
     var sqlQuery="insert into stations (id,name) values ?";
     var values = [
-        ["Mumbai","Mumbai"],
-        ["Pune","Pune"],
-        ["Delhi","Delhi"]
+        ["Banglore","Banglore"],
+        ["Goa","Goa"],
+        ["Madras","Madras"]
     ]
     con.query(sqlQuery,[values], function(err,result){
         if(err) throw err;
@@ -60,3 +60,5 @@ con.connect(function(err){
 //         console.log(result)
 //     })
 // })
+
+
